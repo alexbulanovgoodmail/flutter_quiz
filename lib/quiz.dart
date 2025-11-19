@@ -1,11 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/screens/screen_start.dart';
+import 'package:flutter_quiz/screens/screen_questions.dart';
 
-class Quiz extends StatelessWidget {
+class Quiz extends StatefulWidget {
   const Quiz({super.key});
 
   @override
+  State<Quiz> createState() => _QuizState();
+}
+
+class _QuizState extends State<Quiz> {
+  String activeScreen = 'screen-start';
+
+  void switchScreen() {
+    setState(() {
+      activeScreen = 'screen-questions';
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    Widget? screenWidget;
+    if (activeScreen == 'screen-start') {
+      screenWidget = ScreenStart(switchScreen);
+    } else if (activeScreen == 'screen-questions') {
+      screenWidget = ScreenQuestions();
+    }
+
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -24,7 +45,7 @@ class Quiz extends StatelessWidget {
               horizontal: 24.0,
               vertical: 60.0,
             ),
-            child: ScreenStart(),
+            child: screenWidget,
           ),
         ),
       ),
