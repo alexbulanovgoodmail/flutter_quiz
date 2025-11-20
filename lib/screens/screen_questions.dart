@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_quiz/data/questions.dart';
 import 'package:flutter_quiz/answer_button.dart';
 
@@ -12,7 +13,11 @@ class ScreenQuestions extends StatefulWidget {
 class _ScreenQuestionsState extends State<ScreenQuestions> {
   var currentQuestionIndex = 0;
 
-  void handleAnswerQuestion(String selectedAnswers) {}
+  void handleAnswerQuestion(String selectedAnswers) {
+    setState(() {
+      currentQuestionIndex++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +29,13 @@ class _ScreenQuestionsState extends State<ScreenQuestions> {
       children: <Widget>[
         Text(
           currentQuestion.text,
-          style: const TextStyle(
-            fontSize: 24.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            letterSpacing: .5,
+          style: GoogleFonts.lato(
+            textStyle: const TextStyle(
+              fontSize: 24.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              letterSpacing: .5,
+            ),
           ),
           textAlign: TextAlign.center,
         ),

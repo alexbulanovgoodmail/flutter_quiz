@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_launcher_icons: ^0.14.4
+  google_fonts: ^6.3.2
 
 dev_dependencies:
   flutter_test:
