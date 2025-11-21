@@ -4,7 +4,9 @@ import 'package:flutter_quiz/data/questions.dart';
 import 'package:flutter_quiz/answer_button.dart';
 
 class ScreenQuestions extends StatefulWidget {
-  const ScreenQuestions({super.key});
+  const ScreenQuestions(this.handleSelectAnswer, {super.key});
+
+  final void Function(String answer) handleSelectAnswer;
 
   @override
   State<ScreenQuestions> createState() => _ScreenQuestionsState();
@@ -14,6 +16,8 @@ class _ScreenQuestionsState extends State<ScreenQuestions> {
   var currentQuestionIndex = 0;
 
   void handleAnswerQuestion(String selectedAnswers) {
+    widget.handleSelectAnswer(selectedAnswers);
+
     setState(() {
       currentQuestionIndex++;
     });
