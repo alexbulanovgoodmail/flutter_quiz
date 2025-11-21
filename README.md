@@ -1,3 +1,4 @@
 # flutter_quiz
 
-A new Flutter project.
+<img src="https://github.com/alexbulanovgoodmail/flutter_quiz/blob/main/preview.png?raw=true" height="400">
+
